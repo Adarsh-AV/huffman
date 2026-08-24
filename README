@@ -1,8 +1,80 @@
-This program is simply for me to learn how to work with
-binary trees in C++, in the form of Huffman coding.
+# Huffman Coding Project
 
-The goal i decided to go for was: A console based application
-that will read a file, perform huffman coding, then save the
-result in one data file, and one huffman tabel file. So that
-the data can be stored, sent, or maybe used in some other
-context.
+This repository contains a C++ implementation of Huffman coding, built as a learning project to explore binary trees, frequency analysis, and lossless data compression.
+
+## Overview
+
+Huffman coding is a compression technique that assigns shorter bit sequences to more frequent characters and longer bit sequences to less frequent ones. This project demonstrates the idea by:
+
+- reading a file,
+- calculating character frequencies,
+- building a Huffman tree,
+- encoding the data into a compressed representation,
+- storing the encoded output and symbol table in separate files.
+
+The code is structured around:
+
+- `Huffman.h` and `Huffman.cpp` for core compression logic
+- `Node.h` and `Node.cpp` for the binary tree node structure
+- `main.cpp` for the console entry point
+
+## Project goal
+
+The original goal of this project was to create a small command-line tool that could:
+
+1. read a source file,
+2. compress it using Huffman coding,
+3. write the compressed data to a `.hdta` file,
+4. write the Huffman table to a `.htbl` file.
+
+This enables the data to be stored or transferred in a more compact form.
+
+## Building the project
+
+Compile the project with a C++ compiler such as `g++`:
+
+```bash
+g++ *.cpp -o huffman
+```
+
+## Usage
+
+The project is designed to be run from the command line.
+
+### Encoding
+
+```bash
+./huffman -e sample.txt
+```
+
+This will encode the file and generate:
+
+- `sample.txt.hdta`
+- `sample.txt.htbl`
+
+### Decoding
+
+```bash
+./huffman -d sample.txt.hdta sample.txt.htbl
+```
+
+This is intended to reconstruct the original content from the compressed data and the Huffman table.
+
+## Notes
+
+- This repository is primarily educational and demonstrates Huffman tree construction and encoding logic in C++.
+- It is intended to be a small experimentation project rather than a production-ready compression utility.
+- Some parts of the implementation may still require cleanup or expansion depending on the intended end state of the project.
+
+## Files in the repository
+
+- `Huffman.cpp` — Huffman compression implementation
+- `Huffman.h` — Huffman class and data structures
+- `Node.cpp` — node logic and tree traversal helpers
+- `Node.h` — node definitions
+- `main.cpp` — program entry point
+- `README` — project documentation
+
+## License
+
+This project is provided for learning and experimentation purposes. Use it as a reference or starting point for understanding Huffman coding in C++.
